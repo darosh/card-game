@@ -8,6 +8,7 @@
     var x;
     var y;
     var margin = 46;
+    var fontSize = 26;
     var svg;
     var svgCards;
     var texts;
@@ -52,7 +53,7 @@
 
     function initView() {
         var width = window.innerWidth;
-        var form = parseFloat(d3.select('.page-game .form').style('height')) + 10;
+        var form = parseFloat(d3.select('.page-game .form').style('height')) + 0;
         var height = window.innerHeight - form;
 
         if (width < height) {
@@ -65,28 +66,45 @@
             if (isNaN(d.oX)) {
                 d.oX = d.x;
                 d.oY = d.y;
+
+                if (!d.id) {
+                    d.oG = d.g;
+                }
             }
 
             if (tempHeight) {
                 d.x = d.oY;
                 d.y = d.oX;
+
+                if (!d.id) {
+                    d.g = [d.oG[1], d.oG[0]];
+                }
             } else {
                 d.x = d.oX;
                 d.y = d.oY;
+
+                if (!d.id) {
+                    d.g = [d.oG[0], d.oG[1]];
+                }
             }
         });
 
-        cardWidth = players[0].w(width, height);
+        var g = players[0].g;
+
+        cardWidth = Math.min(width / g[0], (height - fontSize * (g[1] === 1 ? 2 : g[1])) / g[1]);
 
         if (tempHeight) {
             width = height;
             height = tempHeight;
+            cardWidth = Math.min(width / g[0], (height - fontSize - fontSize * (g[1] === 1 ? 2 : g[1])) / g[1]);
+        } else {
+            cardWidth = Math.min(width / g[0], (height - fontSize * (g[1] === 1 ? 2 : g[1])) / g[1]);
         }
 
-        cardWidth = (2 * cardWidth - 3 * margin) / 2;
+
         s = cardWidth / config.sizeScale;
-        x = d3.scaleLinear().domain([0, 1]).range([margin, (width - cardWidth - margin)]);
-        y = d3.scaleLinear().domain([0, 1]).range([margin, (height - cardWidth - margin)]);
+        x = d3.scaleLinear().domain([0, 1]).range([0, (width - cardWidth)]);
+        y = d3.scaleLinear().domain([0, 1]).range([fontSize, (height - cardWidth - (g[1] === 1 ? fontSize : 0))]);
 
         svg = svg || d3.select('.page-game.board')
                 .append('svg');
@@ -362,7 +380,8 @@
                     id: 0,
                     w: function (w, h) {
                         return Math.min(w / 2, h);
-                    }
+                    },
+                    g: [2, 1]
                 },
                 {
                     x: 1,
@@ -377,7 +396,8 @@
                     id: 0,
                     w: function (w, h) {
                         return Math.min(w / 3, h);
-                    }
+                    },
+                    g: [3, 1]
                 },
                 {
                     x: 0,
@@ -397,7 +417,8 @@
                     id: 0,
                     w: function (w, h) {
                         return Math.min(w / 3, h / 2);
-                    }
+                    },
+                    g: [3, 2]
                 },
                 {
                     x: 0,
@@ -422,7 +443,8 @@
                     id: 0,
                     w: function (w, h) {
                         return Math.min(w / 3, h / 2);
-                    }
+                    },
+                    g: [3, 2]
                 },
                 {
                     x: 0,
@@ -443,41 +465,6 @@
                     x: 1,
                     y: 1,
                     id: 4
-                }
-            ],
-            5: [
-                {
-                    x: 0.5,
-                    y: 1,
-                    id: 0,
-                    w: function (w, h) {
-                        return Math.min(w / 3, h / 2);
-                    }
-                },
-                {
-                    x: 0,
-                    y: 0,
-                    id: 1
-                },
-                {
-                    x: 1,
-                    y: 0,
-                    id: 3
-                },
-                {
-                    x: 0,
-                    y: 1,
-                    id: 4
-                },
-                {
-                    x: 1,
-                    y: 1,
-                    id: 5
-                },
-                {
-                    x: 0.5,
-                    y: 0,
-                    id: 2
                 }
             ]
         };
