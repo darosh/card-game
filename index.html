@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Card Game</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/topcoat/0.8.0/css/topcoat-mobile-light.min.css">
+    <script src="//d3js.org/d3.v4.min.js"></script>
+    <style>
+        html > body {
+            background-color: #fff;
+            margin: 0;
+        }
+
+        fieldset {
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 8px;
+            padding: 15px 20px 20px;
+            margin: 0 10px 10px 10px;
+        }
+
+        fieldset > label:not(:nth-child(2)), fieldset > button.topcoat-button:not(:nth-child(2)) {
+            margin-left: 10px;
+        }
+
+        fieldset legend {
+            color: rgba(0, 0, 0, 0.36);
+        }
+
+        fieldset div {
+            height: 15px;
+        }
+
+        fieldset div + * {
+            margin-left: 0 !important;
+        }
+
+        fieldset .topcoat-button {
+            height: 2rem;
+            line-height: 2rem;
+        }
+
+        fieldset .topcoat-button {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .wrap {
+            margin: 10px 20px 20px 20px;
+        }
+
+        @media print {
+            .no-print, .no-print * {
+                display: none !important;
+            }
+        }
+
+        @media screen {
+            .no-screen, .no-screen * {
+                display: none !important;
+            }
+        }
+
+        svg {
+            display: block;
+        }
+
+        .wrap-print > svg {
+            float: left;
+        }
+
+        .clickable {
+            cursor: pointer;
+        }
+
+        .topcoat-button-bar__button:disabled {
+            opacity: 1;
+            color: #bbb;
+            background-color: #fafafa;
+        }
+
+        .form {
+            flex-wrap: wrap;
+            display: flex;
+            margin-top: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .page-game .form {
+            justify-content: center
+        }
+
+        .page-cards,
+        .page-game {
+            display: none;
+        }
+
+        .show-cards .page-cards {
+            display: inherit;
+        }
+
+        .show-game .page-game {
+            display: inherit;
+        }
+    </style>
+</head>
+<body>
+<div class="page-cards">
+    <div class="form no-print">
+        <fieldset>
+            <legend>Set</legend>
+
+            <label class="topcoat-radio-button">
+                <input type="radio" name="input-symbols" value="0" checked>
+                <div class="topcoat-radio-button__checkmark"></div>
+                Numbers
+            </label>
+            <label class="topcoat-radio-button">
+                <input type="radio" name="input-symbols" value="1">
+                <div class="topcoat-radio-button__checkmark"></div>
+                Misc
+            </label>
+            <label class="topcoat-radio-button">
+                <input type="radio" name="input-symbols" value="2">
+                <div class="topcoat-radio-button__checkmark"></div>
+                Icons
+            </label>
+            <label class="topcoat-radio-button">
+                <input type="radio" name="input-symbols" value="3">
+                <div class="topcoat-radio-button__checkmark"></div>
+                Smileys
+            </label>
+            <label class="topcoat-radio-button">
+                <input type="radio" name="input-symbols" value="4">
+                <div class="topcoat-radio-button__checkmark"></div>
+                Animals
+            </label>
+
+            <div></div>
+
+            <label class="topcoat-radio-button">
+                <input type="radio" name="input-symbols" value="5">
+                <div class="topcoat-radio-button__checkmark"></div>
+                Food
+            </label>
+            <label class="topcoat-radio-button">
+                <input type="radio" name="input-symbols" value="6">
+                <div class="topcoat-radio-button__checkmark"></div>
+                Flags
+            </label>
+            <label class="topcoat-radio-button">
+                <input type="radio" name="input-symbols" value="7">
+                <div class="topcoat-radio-button__checkmark"></div>
+                Words
+            </label>
+            <label class="topcoat-radio-button">
+                <input type="radio" name="input-symbols" value="8">
+                <div class="topcoat-radio-button__checkmark"></div>
+                Colors
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Symbols</legend>
+
+            <label class="topcoat-checkbox">
+                <input type="checkbox" name="input-invert" checked>
+                <div class="topcoat-checkbox__checkmark"></div>
+                Background
+            </label>
+            <label class="topcoat-checkbox">
+                <input type="checkbox" name="input-size" checked>
+                <div class="topcoat-checkbox__checkmark"></div>
+                Scale
+            </label>
+
+            <div></div>
+
+            <label class="topcoat-checkbox">
+                <input type="checkbox" name="input-rotation" checked>
+                <div class="topcoat-checkbox__checkmark"></div>
+                Rotate
+            </label>
+            <label class="topcoat-checkbox">
+                <input type="checkbox" name="input-shuffle" checked>
+                <div class="topcoat-checkbox__checkmark"></div>
+                Shuffle
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Cards</legend>
+            <label class="topcoat-checkbox">
+                <input type="checkbox" checked name="input-circle">
+                <div class="topcoat-checkbox__checkmark"></div>
+                Circle
+            </label>
+            <div></div>
+            <label class="topcoat-checkbox">
+                <input type="checkbox" checked name="select-overview">
+                <div class="topcoat-checkbox__checkmark"></div>
+                Overview
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Deck</legend>
+            <label class="topcoat-radio-button">
+                <input type="radio" name="input-deck" value="0">
+                <div class="topcoat-radio-button__checkmark"></div>
+                3&times;7
+            </label>
+            <label class="topcoat-radio-button">
+                <input type="radio" name="input-deck" value="1">
+                <div class="topcoat-radio-button__checkmark"></div>
+                4&times;13
+            </label>
+
+            <div></div>
+
+            <label class="topcoat-radio-button">
+                <input type="radio" name="input-deck" value="2">
+                <div class="topcoat-radio-button__checkmark"></div>
+                6&times;31
+            </label>
+            <label class="topcoat-radio-button">
+                <input type="radio" name="input-deck" value="3" checked>
+                <div class="topcoat-radio-button__checkmark"></div>
+                8&times;57
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend>Columns</legend>
+            <label class="topcoat-radio-button">
+                <input type="radio" name="select-cols" value="3">
+                <div class="topcoat-radio-button__checkmark"></div>
+                3
+            </label>
+            <label class="topcoat-radio-button">
+                <input type="radio" name="select-cols" value="4">
+                <div class="topcoat-radio-button__checkmark"></div>
+                4
+            </label>
+
+            <div></div>
+
+            <label class="topcoat-radio-button">
+                <input type="radio" name="select-cols" value="6">
+                <div class="topcoat-radio-button__checkmark"></div>
+                6
+            </label>
+            <label class="topcoat-radio-button">
+                <input type="radio" name="select-cols" value="12" checked>
+                <div class="topcoat-radio-button__checkmark"></div>
+                12
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>View</legend>
+            <button id="button-refresh" class="topcoat-button">Refresh</button>
+            <button id="button-print" class="topcoat-button">Print</button>
+            <button id="button-save" class="topcoat-button">Save</button>
+            <div></div>
+            <a class="topcoat-button" target="_blank" href="https://github.com/darosh/card-game">About</a>
+            <button id="button-game" class="topcoat-button topcoat-button--cta">Play</button>
+        </fieldset>
+    </div>
+    <div class="wrap no-print"></div>
+    <div class="wrap-print no-screen"></div>
+</div>
+<div class="page-game">
+    <div class="form">
+        <fieldset>
+            <legend>Players</legend>
+            <label class="topcoat-radio-button">
+                <input type="radio" name="game-players" value="1" checked>
+                <div class="topcoat-radio-button__checkmark"></div>
+                1
+            </label>
+            <label class="topcoat-radio-button">
+                <input type="radio" name="game-players" value="2">
+                <div class="topcoat-radio-button__checkmark"></div>
+                2
+            </label>
+            <label class="topcoat-radio-button">
+                <input type="radio" name="game-players" value="3">
+                <div class="topcoat-radio-button__checkmark"></div>
+                3
+            </label>
+            <label class="topcoat-radio-button">
+                <input type="radio" name="game-players" value="4">
+                <div class="topcoat-radio-button__checkmark"></div>
+                4
+            </label>
+            <label class="topcoat-radio-button">
+                <input type="radio" name="game-players" value="5">
+                <div class="topcoat-radio-button__checkmark"></div>
+                5
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend>View</legend>
+            <button id="button-cards" class="topcoat-button">Cards</button>
+            <button id="button-full-screen" class="topcoat-button">Full screen</button>
+            <button id="button-restart" class="topcoat-button">Restart</button>
+        </fieldset>
+    </div>
+    <div class="page-game board"></div>
+</div>
+<script src="scripts/utils.js"></script>
+<script src="scripts/deck.js"></script>
+<script src="scripts/game.js"></script>
+<script src="scripts/cards.js"></script>
+</body>
+</html>
