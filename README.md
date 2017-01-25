@@ -48,5 +48,4 @@ Named [web colors](https://en.wikipedia.org/wiki/Web_colors#X11_color_names).
 
 ## License
 
-* Copyright (c) 2017 Jan Forst 
-* [The MIT License](https://opensource.org/licenses/MIT)
+Copyright (c) 2017 Jan Forst, [The MIT License](https://opensource.org/licenses/MIT)
