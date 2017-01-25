@@ -2,7 +2,7 @@
 
 Card symbol matching game and generator.
 
-See live version at [darosh.github.io/card-game](https://darosh.github.io/card-game/).
+Live version at [darosh.github.io/card-game](https://darosh.github.io/card-game/).
 
 ## Sets
 
@@ -22,7 +22,7 @@ Icons provided by [Material Design Icons](https://material.io/icons/).
 
 ### Smileys
 
-Selected top smileys via [emojitracker](http://emojitracker.com/) 
+Selected top smileys via [emojitracker](http://emojitracker.com/).
 
 Icons provided free by [EmojiOne](http://emojione.com). 
 
