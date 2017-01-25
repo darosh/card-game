@@ -2,6 +2,8 @@
 
 Card symbol matching game and generator.
 
+See live version at [darosh.github.io/card-game](https://darosh.github.io/card-game/).
+
 ## Sets
 
 ### Numbers
@@ -11,6 +13,7 @@ Card symbol matching game and generator.
 ### Misc
 
 Alphabet plus cardinal and ordinal numbers.
+
 [Google Fonts](https://fonts.google.com/): Baloo Bhai, Cormorant Garamond, Dancing Script, Libre Baskerville, Pacifico, Righteous, Roboto.
 
 ### Icons
@@ -19,7 +22,9 @@ Icons provided by [Material Design Icons](https://material.io/icons/).
 
 ### Smileys
 
-Icons provided free by [EmojiOne](http://emojione.com). Selected top smileys via [emojitracker](http://emojitracker.com/) 
+Selected top smileys via [emojitracker](http://emojitracker.com/) 
+
+Icons provided free by [EmojiOne](http://emojione.com). 
 
 ### Animals
 
