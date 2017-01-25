@@ -6,43 +6,43 @@ Live version at [darosh.github.io/card-game](https://darosh.github.io/card-game/
 
 ## Sets
 
-### Numbers
+### 1. Numbers
 
 [Google Fonts](https://fonts.google.com/): Baloo Bhai, Cormorant Garamond, Dancing Script, Libre Baskerville, Pacifico, Righteous, Roboto.
 
-### Misc
+### 2. Misc
 
 Alphabet plus cardinal and ordinal numbers.
 
 [Google Fonts](https://fonts.google.com/): Baloo Bhai, Cormorant Garamond, Dancing Script, Libre Baskerville, Pacifico, Righteous, Roboto.
 
-### Icons
+### 3. Icons
 
 Icons provided by [Material Design Icons](https://material.io/icons/).
 
-### Smileys
+### 4. Smileys
 
 Selected top smileys via [emojitracker](http://emojitracker.com/).
 
 Icons provided free by [EmojiOne](http://emojione.com). 
 
-### Animals
+### 5. Animals
 
 Icons provided free by [EmojiOne](http://emojione.com).
 
-### Food
+### 6. Food
 
 Icons provided free by [EmojiOne](http://emojione.com).
 
-### Flags
+### 7. Flags
 
 Icon made by Freepik from [www.flaticon.com](http://www.flaticon.com/packs/countrys-flags).
 
-### Words
+### 8. Words
 
 Most common [words](https://en.wikipedia.org/wiki/Most_common_words_in_English).
 
-### Colors
+### 9. Colors
 
 Named [web colors](https://en.wikipedia.org/wiki/Web_colors#X11_color_names).
 
