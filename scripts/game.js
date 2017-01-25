@@ -237,7 +237,7 @@
                     return d.c || '';
                 } else {
                     if (!d.c && !d.e) {
-                        return 'Player #' + d.id;
+                        return 'Player ' + d.id;
                     } else {
                         return (d.c || '0') + (d.e ? ' − ' + d.e + ' = ' + ((d.c || 0) - d.e).toString().replace('-', '−') : '');
                     }
