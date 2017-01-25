@@ -48,7 +48,7 @@
             return;
         }
 
-        initView();
+        setTimeout(initView);
     }
 
     function initView() {
