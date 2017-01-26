@@ -18,7 +18,7 @@ Powered by [D3.js](https://d3js.org/) and [Topcoat](http://topcoat.io/).
 * 4 printable layouts with symbols overview
 * scalable vector graphics and [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) export
 * speaking via [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)
-* real emoji shortcuts used, see [emoji.codes](http://emoji.codes/), low dash removed, for example: _&colon;heart_eyes&colon;_ is _heart eyes_ displayed as :heart_eyes:
+* real emoji shortcuts used, see [emoji.codes](http://emoji.codes/), low dash removed, for example: _::heart_eyes::_ is _heart eyes_ displayed as :heart_eyes:
 
 ## Symbol Sets
 
