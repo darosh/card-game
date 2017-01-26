@@ -10,11 +10,15 @@
         window.speechSynthesis.speak(msg);
     }
 
+    function utilIsFullScreen() {
+        return document.fullscreenElement ||
+        document.webkitFullscreenElement ||
+        document.mozFullScreenElement ||
+        document.msFullscreenElement;
+    }
+
     function utilFullScreen(el, off) {
-        if (off || document.fullscreenElement ||
-            document.webkitFullscreenElement ||
-            document.mozFullScreenElement ||
-            document.msFullscreenElement) {
+        if (off || utilIsFullScreen()) {
             if (document.exitFullscreen) {
                 document.exitFullscreen();
             } else if (document.webkitExitFullscreen) {
@@ -54,8 +58,8 @@
         obj.addEventListener(type, func);
     }
 
-
     app.utilSpeak = utilSpeak;
+    app.utilIsFullScreen = utilIsFullScreen;
     app.utilFullScreen = utilFullScreen;
     utilThrottle('resize', 'optimizedResize');
 })(window.app = window.app || {});
