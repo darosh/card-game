@@ -302,9 +302,11 @@
 
         cardElement.parentElement.appendChild(cardElement);
 
+        var drag = d3.drag().on('end', clicked);
+
         cardSelection
             .selectAll('.symbol')
-            .call(d3.drag().on('end', clicked));
+            .call(drag);
 
         cardSelection
             .transition()
@@ -324,10 +326,15 @@
             });
 
         function clicked() {
+            if (d3.select(this).classed('clicked')) {
+                return;
+            }
+
             var title = d3.select(this).attr('title');
             var mainSymbol = svg.select('.card.main .symbol[title="' + title + '"]');
 
             if (mainSymbol.node()) {
+                d3.select(this).classed('clicked', true);
                 target.c = target.c || 0;
                 target.c++;
                 players[0].c--;
