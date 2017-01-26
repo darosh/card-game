@@ -16,7 +16,7 @@ Powered by [D3.js](https://d3js.org/) and [Topcoat](http://topcoat.io/).
 * background, scale and rotation options
 * 1 to 4 players
 * 4 printable layouts with symbols overview
-* [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) export
+* scalable vector graphics and [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) export
 * speaking via [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)
 
 ## Symbol Sets
