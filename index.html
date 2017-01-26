@@ -116,7 +116,7 @@
             margin-bottom: 15px;
         }
 
-        .topcoat-button {
+        .topcoat-button, .topcoat-icon-button {
             margin-bottom: 15px;
             margin-right: 10px;
         }
@@ -132,6 +132,16 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+        }
+
+        .topcoat-icon-button {
+            padding: 0 0.6rem;
+            line-height: 1.8rem;
+        }
+
+        .topcoat-icon {
+            width: 22px;
+            height: 22px;
         }
     </style>
 </head>
@@ -166,9 +176,6 @@
                 <div class="topcoat-radio-button__checkmark"></div>
                 Animals
             </label>
-
-            <!--<div></div>-->
-
             <label class="topcoat-radio-button">
                 <input type="radio" name="input-symbols" value="5">
                 <div class="topcoat-radio-button__checkmark"></div>
@@ -293,7 +300,7 @@
 <div class="page-game">
     <div class="form">
         <fieldset>
-            <legend>Players</legend>
+            <legend>View</legend>
             <label class="topcoat-radio-button">
                 <input type="radio" name="game-players" value="1" checked>
                 <div class="topcoat-radio-button__checkmark"></div>
@@ -314,12 +321,25 @@
                 <div class="topcoat-radio-button__checkmark"></div>
                 4
             </label>
-        </fieldset>
-        <fieldset>
-            <legend>View</legend>
-            <button id="button-cards" class="topcoat-button">Cards</button>
-            <button id="button-full-screen" class="topcoat-button">Full</button>
-            <button id="button-restart" class="topcoat-button">Restart</button>
+
+            <button id="button-cards" class="topcoat-icon-button">
+                <svg class="topcoat-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                     viewBox="-0.5 0.5 42 42">
+                    <path d="M39.5,26.5v-10c0-2.529-0.508-3-2.979-3H21.5v-12l-20,20l20,20v-12h15.021C38.961,29.5,39.5,29,39.5,26.5z"/>
+                </svg>
+            </button>
+            <button id="button-full-screen" class="topcoat-icon-button">
+                <svg class="topcoat-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                     viewBox="-0.5 0.5 42 42">
+                    <path d="M21.391,16.17l4.439,4.439c1.13,1.131,1.57,1.101,2.67,0l6.67-6.67l5.33,5.34V1.5H22.721l5.34,5.33l-6.67,6.67 C20.311,14.58,20.279,15.061,21.391,16.17z M19.609,26.83l-4.439-4.439c-1.13-1.131-1.57-1.101-2.67,0l-6.67,6.67l-5.33-5.34V41.5 h17.779l-5.34-5.33l6.67-6.67C20.689,28.42,20.721,27.939,19.609,26.83z"/>
+                </svg>
+            </button>
+            <button id="button-restart" class="topcoat-icon-button">
+                <svg class="topcoat-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                     viewBox="-0.5 0.5 42 42">
+                    <path d="M26.731,17.5H39.5V4.91l-4.335,4.385c-0.34-0.399-0.651-0.79-1.021-1.17c-7.48-7.5-19.572-7.5-27.042,0 c-7.479,7.5-7.465,19.661,0.015,27.161c7.471,7.5,19.597,7.5,27.078,0c0,0,2.505-2.939,3.334-4.51l-4.129-1.84 c-0.609,1.068-2.39,3.148-2.39,3.148c-5.719,5.74-14.979,5.74-20.689,0c-5.72-5.729-5.719-15.031,0-20.761 c5.71-5.74,14.971-5.74,20.689,0c0.381,0.38,0.729,0.574,1.061,0.984L26.731,17.5z"/>
+                </svg>
+            </button>
         </fieldset>
     </div>
     <div class="page-game board"></div>

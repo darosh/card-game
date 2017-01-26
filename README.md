@@ -6,6 +6,8 @@ Live version at [darosh.github.io/card-game](https://darosh.github.io/card-game/
 
 Tested with [Chrome](https://www.google.com/chrome/browser/desktop/) browser and _tablet PC_.
 
+Powered by [D3.js](https://d3js.org/) and [Topcoat](http://topcoat.io/).
+
 ## Sets
 
 ### 1. Numbers
