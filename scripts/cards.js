@@ -392,19 +392,10 @@
                     var x = d3.select(options.data[d.id]).attr('fill');
                 }
 
-                if (!x && options.switchInvert && d.data && !d.simple) {
-                    var cc = d3.cubehelix(getPrimaryColor(options.data[d.id].firstChild) || '#000');
-                    cc.l = 0.8;
-                    cc.opacity = 0.3;
-                    cc = cc.toString();
-                }
-
                 return options.switchInvert && x
                     ? x
                     : options.switchInvert && d.data
-                        ? options.simple
-                            ? d.data.color
-                            : cc
+                        ? d.data.color
                         : config.colorLight;
             })
             .attr('stroke', function (d) {
@@ -519,33 +510,6 @@
         return d3.packEnclose(cs)
     }
 
-    function getPrimaryColor(g) {
-        var fs = [];
-
-        function iteration(g) {
-            var c = g.getAttribute('fill');
-
-            if (c) {
-                var h = d3.cubehelix(c);
-                fs.push(h);
-
-                h.d = Math.sqrt(Math.pow(1.25 - h.s, 2) + Math.pow(0.8 - h.l, 2));
-            }
-
-            for (var i = 0; i < g.children.length; i++) {
-                iteration(g.children[i]);
-            }
-        }
-
-        iteration(g);
-
-        fs.sort(function (a, b) {
-            return a.d - b.d;
-        });
-
-        return fs[0];
-    }
-
     function printCard() {
         var b = d3.select('.wrap-print');
         b.selectAll('*').remove();
@@ -596,7 +560,7 @@
             return;
         }
 
-        if(app.showCards) {
+        if (app.showCards) {
             app.showCards(true);
         }
     }
