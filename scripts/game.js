@@ -51,17 +51,6 @@
         setTimeout(initView);
     }
 
-    window.addEventListener('orientationchange', unFullscreen, false);
-
-    // http://stackoverflow.com/questions/34683742/android-chrome-fullscreen-moves-25px-down-on-rotate
-    function unFullscreen() {
-        if (!d3.select('body.show-game').node()) {
-            return;
-        }
-
-        fullScreenGame(true);
-    }
-
     function initView() {
         var width = window.innerWidth;
         var form = parseFloat(d3.select('.page-game .form').style('height')) + 0;
