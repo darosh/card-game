@@ -4,7 +4,7 @@ Card symbol matching hotseat single/multi player observation game and print gene
 
 Live version at [darosh.github.io/card-game](https://darosh.github.io/card-game/) served from this repository.
 
-Tested with [Chrome](https://www.google.com/chrome/browser/desktop/) browser and _tablet PC_.
+Tested with [Chrome](https://www.google.com/chrome/browser/desktop/) browser and _tablet PC_ (mobile performance is poorer with complex symbols/shapes).
 
 Powered by [D3.js](https://d3js.org/) and [Topcoat](http://topcoat.io/).
 
