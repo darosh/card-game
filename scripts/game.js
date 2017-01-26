@@ -358,8 +358,7 @@
         }
 
         function released() {
-            target.clicks = target.clicks || 1;
-            target.clicks--;
+            target.clicks = 0;
         }
     }
 
