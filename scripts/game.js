@@ -304,7 +304,7 @@
 
         cardSelection
             .selectAll('.symbol')
-            .call(d3.drag().on('start', clicked));
+            .call(d3.drag().on('start', clicked).on('end', released));
 
         cardSelection
             .transition()
@@ -324,6 +324,13 @@
             });
 
         function clicked() {
+            target.clicks = target.clicks || 0;
+            target.clicks++;
+
+            if (target.clicks > 1) {
+                return;
+            }
+
             var title = d3.select(this).attr('title');
             var mainSymbol = svg.select('.card.main .symbol[title="' + title + '"]');
 
@@ -348,6 +355,11 @@
                 target.e++;
                 updateText();
             }
+        }
+
+        function released() {
+            target.clicks = target.clicks || 1;
+            target.clicks--;
         }
     }
 
