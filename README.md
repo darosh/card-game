@@ -1,6 +1,6 @@
 # Card Game
 
-Card symbol matching game and generator.
+Card symbol matching hotseat game and print generator.
 
 Live version at [darosh.github.io/card-game](https://darosh.github.io/card-game/).
 
