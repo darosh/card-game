@@ -373,19 +373,20 @@
             return text.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
         }
 
-        d3.selectAll('input, button, a').on('click.ga', function () {
-            var target = trim(d3.select(this).text()) || d3.select(this).attr('title');
-            var parent;
+        d3.selectAll('input, button, a')
+            .on('click.ga', function () {
+                var target = trim(d3.select(this).text()) || d3.select(this).attr('title');
+                var parent;
 
-            if (!target) {
-                target = trim(d3.select(this.parentElement).text());
-                parent = trim(d3.select(this.parentElement.parentElement.querySelector('legend')).text());
-            } else {
-                parent = trim(d3.select(this.parentElement.querySelector('legend')).text());
-            }
+                if (!target) {
+                    target = trim(d3.select(this.parentElement).text());
+                    parent = trim(d3.select(this.parentElement.parentElement.querySelector('legend')).text());
+                } else {
+                    parent = trim(d3.select(this.parentElement.querySelector('legend')).text());
+                }
 
-            ga.send('event', parent, target);
-        })
+                ga('send', 'event', parent, target);
+            });
     }
 </script>
 </body>
