@@ -159,6 +159,8 @@
 
         svgCards = svgCards || svg.append('g');
 
+        svg.node().appendChild(svgCards.node());
+
         var viewCards = svgCards.selectAll('.card')
             .data(cards, function (d) {
                 return d.id;
