@@ -126,8 +126,6 @@
             .attr('height', height)
             .attr('viewBox', '0 0 ' + width + ' ' + height);
 
-        svgCards = svgCards || svg.append('g');
-
         var fulls = svg.selectAll('.collapse').data(app.utilIsFullScreen() ? [players[0]] : []);
         fulls.exit().remove();
 
@@ -158,6 +156,8 @@
             .attr('fill', config.colorBlack);
 
         initTexts();
+
+        svgCards = svgCards || svg.append('g');
 
         var viewCards = svgCards.selectAll('.card')
             .data(cards, function (d) {
