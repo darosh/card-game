@@ -23,7 +23,7 @@ Powered by [D3.js](https://d3js.org/) and [Topcoat](http://topcoat.io/).
 ## To Do 
 
 * Voice recognition with [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API) could be fun
-* Optimization for mobile devices would be nice
+* Optimization for mobile devices would be appreciated
 
 ## Symbol Sets
 
