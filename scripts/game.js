@@ -324,7 +324,7 @@
             });
     }
 
-    function cardMove(cardElement, target) {
+    function cardMove(cardElement, target, moved) {
         d3.select(cardElement.previousSibling)
             .style('display', null)
             .classed('main', true)
@@ -366,6 +366,10 @@
 
                 d3.select(this)
                     .classed('active', true);
+
+                if (moved) {
+                    moved();
+                }
             });
 
         function clicked() {
@@ -382,8 +386,10 @@
                 target.c++;
                 players[0].c--;
                 players[0].last = /*'#' + target.id + ': ' + */title;
-                app.utilSpeak(title, (target.id - 1) / (players.length - 1));
-                cardMove(d3.select('.main').node(), target);
+
+                cardMove(d3.select('.main').node(), target, function () {
+                    app.utilSpeak(title, (target.id - 1) / (players.length - 1));
+                });
 
                 if (!players[0].c) {
                     players[0].end = new Date();
