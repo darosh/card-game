@@ -4,6 +4,8 @@ Card symbol matching game and generator.
 
 Live version at [darosh.github.io/card-game](https://darosh.github.io/card-game/).
 
+Tested with [Chrome](https://www.google.com/chrome/browser/desktop/) browser and _tablet PC_.
+
 ## Sets
 
 ### 1. Numbers
