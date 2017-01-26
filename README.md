@@ -11,7 +11,7 @@ Powered by [D3.js](https://d3js.org/) and [Topcoat](http://topcoat.io/).
 ## Features
 
 * 9 symbol sets
-* 4 _symbol &times; cards_ decks (_3&times;7, 4&times;13, 6&times;31, 8&times;57_)
+* 4 _symbols &times; cards_ decks (_3&times;7, 4&times;13, 6&times;31, 8&times;57_)
 * circular and rectangular card layout
 * background, scale and rotation options
 * 1 to 4 players
