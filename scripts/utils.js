@@ -51,10 +51,10 @@
                 return;
             }
             running = true;
-            requestAnimationFrame(function () {
+            setTimeout(function () {
                 obj.dispatchEvent(new CustomEvent(name));
                 running = false;
-            });
+            }, 200);
         };
         obj.addEventListener(type, func);
     }
