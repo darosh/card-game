@@ -15,6 +15,8 @@
     var timerSelection;
     var hintSelection;
     var id = 0;
+    var collapseIcon = 'M1.325,36.209L5.78,40.66c1.134,1.135,1.576,1.105,2.679,0l5.691-5.684l5.35,5.354V22.5H1.655l5.359,5.346l-5.689,5.688 C0.241,34.615,0.209,35.098,1.325,36.209z M39.676,6.79l-4.455-4.451c-1.134-1.134-1.576-1.104-2.679,0l-5.69,5.685L21.5,2.669 v17.83h17.846l-5.359-5.347l5.689-5.685C40.76,8.385,40.789,7.902,39.676,6.79z';
+    var iconSize = 42;
 
     function showGame(gameOptions, gameConfig) {
         options = options || gameOptions;
@@ -53,7 +55,16 @@
 
     function initView() {
         var width = window.innerWidth;
-        var form = parseFloat(d3.select('.page-game .form').style('height')) + 0;
+        var form = 0;
+        var formEl = d3.select('.page-game .form');
+
+        if (app.utilIsFullScreen()) {
+            formEl.style('display', 'none');
+        } else {
+            formEl.style('display', null);
+            form = parseFloat(formEl.style('height')) + 0;
+        }
+
         var height = window.innerHeight - form;
 
         if (width < height) {
@@ -115,6 +126,35 @@
             .attr('viewBox', '0 0 ' + width + ' ' + height);
 
         svgCards = svgCards || svg.append('g');
+
+        var fulls = svg.selectAll('.collapse').data(app.utilIsFullScreen() ? [players[0]] : []);
+        fulls.exit().remove();
+
+        var fullsEnter = fulls.enter()
+            .append('g')
+            .classed('collapse', true)
+            .on('click', function () {
+                fullScreenGame(true);
+            });
+
+        fullsEnter
+            .merge(fulls)
+            .attr('transform', function (d) {
+                var shift = players.length === 2 ? ((margin * 0.5) / 2) : (margin * 0.5);
+                return 'translate(' + (x(d.x) + cardWidth - shift) + ' ' + (y(d.y) - fontSize) + ')'
+                    + 'scale(' + ((margin * 0.5) / iconSize) + ')'
+            });
+
+        fullsEnter
+            .append('rect')
+            .attr('width', margin)
+            .attr('height', margin)
+            .attr('fill', '#fff');
+
+        fullsEnter
+            .append('path')
+            .attr('d', collapseIcon);
+
 
         var viewCards = svgCards.selectAll('.card')
             .data(cards, function (d) {

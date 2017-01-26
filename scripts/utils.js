@@ -12,9 +12,10 @@
 
     function utilIsFullScreen() {
         return document.fullscreenElement ||
-        document.webkitFullscreenElement ||
-        document.mozFullScreenElement ||
-        document.msFullscreenElement;
+            document.webkitFullscreenElement ||
+            document.mozFullScreenElement ||
+            document.msFullscreenElement ||
+            (window.innerHeight === window.screen.height);
     }
 
     function utilFullScreen(el, off) {
