@@ -221,7 +221,7 @@
         var end = (players[0].end ? players[0].end : new Date());
         var diff = end - players[0].start;
 
-        var hours = d3.timeHour.count(players[0].start, end)
+        var hours = Math.floor((end - players[0].start) / (1000 * 60 * 60));
 
         timerSelection
             .text(function () {
