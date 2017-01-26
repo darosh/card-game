@@ -1,8 +1,8 @@
-# Card Game [![Website](https://img.shields.io/badge/website-online-brightgreen.svg)](https://darosh.github.io/card-game/)
+# Card Game [![Demo](https://img.shields.io/badge/demo-online-brightgreen.svg)](https://darosh.github.io/card-game/)
 
 Card symbol matching hotseat single/multi player observation game and print generator.
 
-Live version at [darosh.github.io/card-game](https://darosh.github.io/card-game/).
+Live version at [darosh.github.io/card-game](https://darosh.github.io/card-game/) served from this repository.
 
 Tested with [Chrome](https://www.google.com/chrome/browser/desktop/) browser and _tablet PC_.
 
