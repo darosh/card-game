@@ -275,7 +275,7 @@
             .text(info)
             .style('display', null)
             .transition()
-            .delay(2000)
+            .delay(3000)
             .duration(0)
             .style('display', 'none')
             .on('end', function () {
