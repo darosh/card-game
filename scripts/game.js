@@ -351,7 +351,7 @@
 
         cardSelection
             .transition()
-            .ease(d3.easeQuad)
+            .ease(d3.easeQuadOut)
             .duration(speed)
             .attr('transform', function () {
                 return 'translate(' + x(target.x) + ' ' + y(target.y) + ')'
