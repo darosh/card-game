@@ -1,4 +1,4 @@
-# Card Game [![Demo](https://img.shields.io/badge/demo-online-brightgreen.svg)](https://darosh.github.io/card-game/)
+# Card Game
 
 Card symbol matching hotseat single/multi player observation game and print generator.
 
