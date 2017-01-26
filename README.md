@@ -20,6 +20,11 @@ Powered by [D3.js](https://d3js.org/) and [Topcoat](http://topcoat.io/).
 * speaking via [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)
 * real emoji shortcuts used in _Smileys_, _Animals_ and _Food_ symbol sets, see [emoji.codes](http://emoji.codes/), for example shortcut _:&#8203;heart_eyes&#8203;:_ is _heart eyes_ (low dash removed) displayed as :heart_eyes:
 
+## To Do 
+
+* Voice recognition with [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API) could be fun
+* Optimization for mobile devices would be nice
+
 ## Symbol Sets
 
 ### 1. Numbers
