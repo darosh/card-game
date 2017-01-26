@@ -153,8 +153,8 @@
 
         fullsEnter
             .append('path')
-            .attr('d', collapseIcon);
-
+            .attr('d', collapseIcon)
+            .attr('fill', config.colorBlack);
 
         var viewCards = svgCards.selectAll('.card')
             .data(cards, function (d) {
