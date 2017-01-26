@@ -157,6 +157,8 @@
             .attr('d', collapseIcon)
             .attr('fill', config.colorBlack);
 
+        initTexts();
+
         var viewCards = svgCards.selectAll('.card')
             .data(cards, function (d) {
                 return d.id;
@@ -181,6 +183,12 @@
                 return config.sizeScale * config.sizeLine / cardWidth;
             });
 
+        if (!players[0].c) {
+            finish(true);
+        }
+    }
+
+    function initTexts() {
         var padding = margin * 0.1;
 
         texts = svg.selectAll('text.info')
@@ -224,10 +232,6 @@
         hintSelection = notes.filter(function (d, i) {
             return i;
         });
-
-        if (!players[0].c) {
-            finish(true);
-        }
     }
 
     function initModel() {
