@@ -64,7 +64,7 @@
             .attr('y', size / 2)
             .attr('font-size', size / 2)
             .attr('text-anchor', 'middle')
-            .attr('alignment-baseline', 'middle');
+            .attr('dominant-baseline', 'middle');
 
         if (fonts) {
             g.attr('font-weight', function () {

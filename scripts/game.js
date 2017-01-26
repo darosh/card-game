@@ -153,7 +153,7 @@
             .attr('fill', config.colorBlack)
             .attr('text-anchor', 'middle')
             .merge(texts)
-            .attr('alignment-baseline', 'baseline')
+            .attr('dominant-baseline', 'baseline')
             .attr('font-size', margin * 0.5 - padding)
             .attr('transform', function (d) {
                 return 'translate(' + (x(d.x) + cardWidth / 2) + ' ' + (y(d.y) - padding) + ')'
@@ -169,7 +169,7 @@
             .attr('fill', config.colorBlack)
             .merge(notes)
             .attr('font-size', margin * 0.5 - padding)
-            .attr('alignment-baseline', 'hanging')
+            .attr('dominant-baseline', 'hanging')
             .attr('transform', function (d) {
                 return 'translate(' + (x(d.x) + cardWidth / 2) + ' ' + (y(d.y) + cardWidth + padding) + ')'
             });
@@ -372,7 +372,7 @@
 
         selection
             .attr('font-size', margin)
-            .attr('alignment-baseline', 'middle')
+            .attr('dominant-baseline', 'middle')
             .attr('transform', function (d) {
                 return 'translate(' + (x(d.x) + cardWidth / 2) + ' ' + (y(d.y) + cardWidth / 2) + ')'
             });
