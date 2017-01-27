@@ -8,7 +8,7 @@ Tested with [Chrome](https://www.google.com/chrome/browser/desktop/) browser and
 
 Powered by [D3.js](https://d3js.org/) and [Topcoat](http://topcoat.io/).
 
-![Symbol Sets](assets/promo.svg?raw=true)
+![Symbol Sets](https://darosh.github.io/card-game/assets/promo.svg)
 
 ## Features
 
